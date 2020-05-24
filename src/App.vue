@@ -1,12 +1,25 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <div class="text-left">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </div>
+
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+  export default {
+    created() {
+      if(localStorage.getItem('code')){
+        this.$router.push('/result')
+      }
+    },
+  }
+</script>
 
 <style>
 #app {
@@ -18,7 +31,11 @@
 }
 
 #nav {
-  padding: 30px;
+  font-size: 0.8rem;
+}
+
+.text-left{
+  text-align: left;
 }
 
 #nav a {
